@@ -36,11 +36,10 @@ $(function(){
       contentType: false,
     })
     .done(function(message){
-      console.log(message)
       var html = buildHTML(message);
       $('.messages').append(html);
-      $('#message_content').val('');
-      $('#message_image').val('');
+      $('#new_message')[0].reset()
+        
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('.form__submit').attr('disabled', false);
     })
