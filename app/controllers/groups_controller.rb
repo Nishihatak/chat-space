@@ -20,8 +20,8 @@ class GroupsController < ApplicationController
   end
 
   def update
-    if group.update(set_group)
-      redirect_to group_messages_path(@group), :notice, 'グループを編集しました'
+    if @group.update(group_params)
+      redirect_to group_messages_path(@group), notice: 'グループを編集しました'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    @group = Group.find(id)
+    @group = Group.find(params[:id])
   end
 
 
