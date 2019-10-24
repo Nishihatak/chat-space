@@ -5,7 +5,7 @@ app_path = File.expand_path('../../../', __FILE__)
 worker_processes 1
 
 #アプリケーションの設置されているディレクトリを指定
-working_directory app_path"#{app_path}/current"
+working_directory "#{app_path}/current"
 
 
 
