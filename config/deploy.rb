@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 # Capistranoのログの表示に利用する
-set :application, '自身のアプリケーション名'
+set :application, 'chat-space'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:Nishihatakak/chat-space.git'
