@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    image = (message.image.url) ? `<img class= "lower-message__image" src=${message.image.url} >` : ""; //三項演算子を使ってmessage.imageにtrueならHTML要素、faiseなら空の値を代入。
+   var image = message.image ? `<img src="${message.image}" class= "lower-message__image" >` : ""; //三項演算子を使ってmessage.imageにtrueならHTML要素、faiseなら空の値を代入。
 
     var html = `<div class="message" data-message-id="${message.id}"> 
           <div class="upper-message">
@@ -12,12 +12,11 @@ $(function(){
             </div>
           </div>
           <div class="lower-meesage">
-            <p class="lower-message__content">
               ${message.content}
-            </p>
             ${image}
           </div>
         </div>`
+    // console.log(html)
     return html;
   }
     $('#new_message').on('submit', function(e){
@@ -33,6 +32,7 @@ $(function(){
       contentType: false,
     })
     .done(function(message){
+      // console.table(message)
       var html = buildHTML(message);
       $('.messages').append(html);
       $('#new_message')[0].reset()
