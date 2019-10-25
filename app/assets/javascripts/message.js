@@ -16,7 +16,6 @@ $(function(){
             ${image}
           </div>
         </div>`
-    // console.log(html)
     return html;
   }
     $('#new_message').on('submit', function(e){
@@ -32,7 +31,6 @@ $(function(){
       contentType: false,
     })
     .done(function(message){
-      // console.table(message)
       var html = buildHTML(message);
       $('.messages').append(html);
       $('#new_message')[0].reset()
@@ -70,6 +68,7 @@ $(function(){
       alert('error');
     });
   }
+}
   setInterval(reloadMessages, 5000);
-  }
+  
 });
