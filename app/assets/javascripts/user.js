@@ -33,8 +33,9 @@ $(function() {
     $(this).parent().remove();
   })
   
-
+  
   $("#user-search-field").on("keyup", function() {
+    $("#user-search-field").off("keyup")
     var input = $("#user-search-field").val();  
 
     $.ajax({
