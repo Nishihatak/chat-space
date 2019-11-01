@@ -29,6 +29,10 @@ $(function() {
               </div>`
               member_list.append(html);
   }
+  $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function(){
+    $(this).parent().remove();
+  })
+  
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();  
@@ -55,13 +59,14 @@ $(function() {
     .fail(function(){
       alert('error');
     })
-    $(document).on("click", ".user-search-add", function () {
+    $(document).off("click").on("click", ".user-search-add", function () {
       var user_id = $(this).data('user-id');
       var user_name = $(this).data('user-name');
       $(this).parent().remove();
       appendAdd(user_id, user_name)
       
     })
+
     $(document).on("click", ".user-search-remove", function () {
       $(this).parent().remove();
     })
