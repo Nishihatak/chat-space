@@ -61,7 +61,7 @@ $(function() {
     .fail(function(){
       alert('error');
     })
-    $(document).on("click", ".user-search-add", function () {
+    $(document).off("click").on("click", ".user-search-add", function () {
       var user_id = $(this).data('user-id');
       var user_name = $(this).data('user-name');
       $(this).parent().remove();
