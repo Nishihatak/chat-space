@@ -36,7 +36,7 @@ $(function() {
   
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();  
-
+    $('#user-search-result').empty();
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -60,6 +60,7 @@ $(function() {
       alert('error');
     })
     $(document).off("click").on("click", ".user-search-add", function () {
+      $('#user-search-result').empty();
       var user_id = $(this).data('user-id');
       var user_name = $(this).data('user-name');
       $(this).parent().remove();
