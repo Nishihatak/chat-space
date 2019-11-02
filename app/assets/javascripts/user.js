@@ -29,6 +29,8 @@ $(function() {
               </div>`
               member_list.append(html);
   }
+
+  
   $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function(){
     $(this).parent().remove();
   })
@@ -36,7 +38,7 @@ $(function() {
   
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();  
-    $('#user-search-result').empty();
+  
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -47,6 +49,8 @@ $(function() {
     .done(function(users){
       if (users.length !== 0) {
         $('#user-search-result').empty();
+        
+        
         users.forEach(function(user){
           appendUser(user)
         });
@@ -59,8 +63,7 @@ $(function() {
     .fail(function(){
       alert('error');
     })
-    $(document).off("click").on("click", ".user-search-add", function () {
-      $('#user-search-result').empty();
+    $(document).on("click", ".user-search-add", function () {
       var user_id = $(this).data('user-id');
       var user_name = $(this).data('user-name');
       $(this).parent().remove();
